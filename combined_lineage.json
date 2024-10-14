@@ -1,0 +1,653 @@
+{
+    "workbooks": [
+        {
+            "name": "Jaffle Shop ",
+            "dashboards": [
+                {
+                    "name": "Dashboard 1",
+                    "upstreamDatasources": [
+                        {
+                            "name": "JAFFLE_SHOP",
+                            "sheets": [
+                                {
+                                    "name": "location",
+                                    "worksheetFields": [],
+                                    "upstreamFields": [
+                                        {
+                                            "name": "Customer Id",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "CUSTOMER_ID",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "ORDERS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "ORDERS",
+                                                        "column": "CUSTOMER_ID",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".CUSTOMER_ID",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "STG_ORDERS",
+                                                                "column": "CUSTOMER_ID",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".CUSTOMER",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "RAW_ORDERS",
+                                                                        "column": "CUSTOMER",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "Reasoning not available",
+                                                                        "upstream_models": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        },
+                                        {
+                                            "name": "Location Name",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "LOCATION_NAME",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "LOCATIONS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "LOCATIONS",
+                                                        "column": "LOCATION_NAME",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_LOCATIONS\".LOCATION_NAME",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "STG_LOCATIONS",
+                                                                "column": "LOCATION_NAME",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".NAME",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "RAW_STORES",
+                                                                        "column": "NAME",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "Reasoning not available",
+                                                                        "upstream_models": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        },
+                                        {
+                                            "name": "Order Total",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "ORDER_TOTAL",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "ORDERS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "ORDERS",
+                                                        "column": "ORDER_TOTAL",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "STG_ORDERS",
+                                                                "column": "ORDER_TOTAL",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "",
+                                                                        "column": "",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "Reasoning not available",
+                                                                        "upstream_models": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "loction and tax",
+                                    "worksheetFields": [],
+                                    "upstreamFields": [
+                                        {
+                                            "name": "Total Lifetime spend",
+                                            "formula": "[Lifetime Spend]+[Lifetime Tax Paid]",
+                                            "upstreamFields": [
+                                                {
+                                                    "name": "Lifetime Spend",
+                                                    "upstreamColumns": [
+                                                        {
+                                                            "name": "LIFETIME_SPEND",
+                                                            "upstreamDatabases": [
+                                                                {
+                                                                    "name": "JAFFLE_SHOP"
+                                                                }
+                                                            ],
+                                                            "upstreamTables": [
+                                                                {
+                                                                    "name": "CUSTOMERS"
+                                                                }
+                                                            ],
+                                                            "database_lineage": {
+                                                                "model": "CUSTOMERS",
+                                                                "column": "LIFETIME_SPEND",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_TOTAL)",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "ORDERS",
+                                                                        "column": "ORDER_TOTAL",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "STG_ORDERS",
+                                                                                "column": "ORDER_TOTAL",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+                                                                                "upstream_models": [
+                                                                                    {
+                                                                                        "model": "",
+                                                                                        "column": "",
+                                                                                        "column Description": "Description not available",
+                                                                                        "reasoning": "Reasoning not available",
+                                                                                        "upstream_models": []
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ],
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Lifetime Tax Paid",
+                                                    "upstreamColumns": [
+                                                        {
+                                                            "name": "LIFETIME_TAX_PAID",
+                                                            "upstreamDatabases": [
+                                                                {
+                                                                    "name": "JAFFLE_SHOP"
+                                                                }
+                                                            ],
+                                                            "upstreamTables": [
+                                                                {
+                                                                    "name": "CUSTOMERS"
+                                                                }
+                                                            ],
+                                                            "database_lineage": {
+                                                                "model": "CUSTOMERS",
+                                                                "column": "LIFETIME_TAX_PAID",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".TAX_PAID)",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "ORDERS",
+                                                                        "column": "TAX_PAID",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "STG_ORDERS",
+                                                                                "column": "TAX_PAID",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+                                                                                "upstream_models": [
+                                                                                    {
+                                                                                        "model": "",
+                                                                                        "column": "",
+                                                                                        "column Description": "Description not available",
+                                                                                        "reasoning": "Reasoning not available",
+                                                                                        "upstream_models": []
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ],
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Lifetime Tax Paid",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "LIFETIME_TAX_PAID",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "CUSTOMERS",
+                                                        "column": "LIFETIME_TAX_PAID",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".TAX_PAID)",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "ORDERS",
+                                                                "column": "TAX_PAID",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "STG_ORDERS",
+                                                                        "column": "TAX_PAID",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "",
+                                                                                "column": "",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "Reasoning not available",
+                                                                                "upstream_models": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        },
+                                        {
+                                            "name": "Location Name",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "LOCATION_NAME",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "LOCATIONS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "LOCATIONS",
+                                                        "column": "LOCATION_NAME",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_LOCATIONS\".LOCATION_NAME",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "STG_LOCATIONS",
+                                                                "column": "LOCATION_NAME",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".NAME",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "RAW_STORES",
+                                                                        "column": "NAME",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "Reasoning not available",
+                                                                        "upstream_models": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "cust type",
+                                    "worksheetFields": [],
+                                    "upstreamFields": [
+                                        {
+                                            "name": "Customer Type",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "CUSTOMER_TYPE",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "CUSTOMERS",
+                                                        "column": "CUSTOMER_TYPE",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "CASE WHEN COUNT(DISTINCT \"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_ID) > 1 THEN  ELSE 'NEW' END",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "ORDERS",
+                                                                "column": "ORDER_ID",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_ID",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "STG_ORDERS",
+                                                                        "column": "ORDER_ID",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ID",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "RAW_ORDERS",
+                                                                                "column": "ID",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "Reasoning not available",
+                                                                                "upstream_models": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        },
+                                        {
+                                            "name": "Total Lifetime spend",
+                                            "formula": "[Lifetime Spend]+[Lifetime Tax Paid]",
+                                            "upstreamFields": [
+                                                {
+                                                    "name": "Lifetime Spend",
+                                                    "upstreamColumns": [
+                                                        {
+                                                            "name": "LIFETIME_SPEND",
+                                                            "upstreamDatabases": [
+                                                                {
+                                                                    "name": "JAFFLE_SHOP"
+                                                                }
+                                                            ],
+                                                            "upstreamTables": [
+                                                                {
+                                                                    "name": "CUSTOMERS"
+                                                                }
+                                                            ],
+                                                            "database_lineage": {
+                                                                "model": "CUSTOMERS",
+                                                                "column": "LIFETIME_SPEND",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_TOTAL)",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "ORDERS",
+                                                                        "column": "ORDER_TOTAL",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "STG_ORDERS",
+                                                                                "column": "ORDER_TOTAL",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+                                                                                "upstream_models": [
+                                                                                    {
+                                                                                        "model": "",
+                                                                                        "column": "",
+                                                                                        "column Description": "Description not available",
+                                                                                        "reasoning": "Reasoning not available",
+                                                                                        "upstream_models": []
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ],
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Lifetime Tax Paid",
+                                                    "upstreamColumns": [
+                                                        {
+                                                            "name": "LIFETIME_TAX_PAID",
+                                                            "upstreamDatabases": [
+                                                                {
+                                                                    "name": "JAFFLE_SHOP"
+                                                                }
+                                                            ],
+                                                            "upstreamTables": [
+                                                                {
+                                                                    "name": "CUSTOMERS"
+                                                                }
+                                                            ],
+                                                            "database_lineage": {
+                                                                "model": "CUSTOMERS",
+                                                                "column": "LIFETIME_TAX_PAID",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".TAX_PAID)",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "ORDERS",
+                                                                        "column": "TAX_PAID",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "STG_ORDERS",
+                                                                                "column": "TAX_PAID",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+                                                                                "upstream_models": [
+                                                                                    {
+                                                                                        "model": "",
+                                                                                        "column": "",
+                                                                                        "column Description": "Description not available",
+                                                                                        "reasoning": "Reasoning not available",
+                                                                                        "upstream_models": []
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ],
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Lifetime Spend",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "LIFETIME_SPEND",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "CUSTOMERS",
+                                                        "column": "LIFETIME_SPEND",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_TOTAL)",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "ORDERS",
+                                                                "column": "ORDER_TOTAL",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "STG_ORDERS",
+                                                                        "column": "ORDER_TOTAL",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "",
+                                                                                "column": "",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "Reasoning not available",
+                                                                                "upstream_models": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        },
+                                        {
+                                            "name": "Lifetime Tax Paid",
+                                            "upstreamColumns": [
+                                                {
+                                                    "name": "LIFETIME_TAX_PAID",
+                                                    "upstreamDatabases": [
+                                                        {
+                                                            "name": "JAFFLE_SHOP"
+                                                        }
+                                                    ],
+                                                    "upstreamTables": [
+                                                        {
+                                                            "name": "CUSTOMERS"
+                                                        }
+                                                    ],
+                                                    "database_lineage": {
+                                                        "model": "CUSTOMERS",
+                                                        "column": "LIFETIME_TAX_PAID",
+                                                        "column Description": "Description not available",
+                                                        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".TAX_PAID)",
+                                                        "upstream_models": [
+                                                            {
+                                                                "model": "ORDERS",
+                                                                "column": "TAX_PAID",
+                                                                "column Description": "Description not available",
+                                                                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID",
+                                                                "upstream_models": [
+                                                                    {
+                                                                        "model": "STG_ORDERS",
+                                                                        "column": "TAX_PAID",
+                                                                        "column Description": "Description not available",
+                                                                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+                                                                        "upstream_models": [
+                                                                            {
+                                                                                "model": "",
+                                                                                "column": "",
+                                                                                "column Description": "Description not available",
+                                                                                "reasoning": "Reasoning not available",
+                                                                                "upstream_models": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "formula": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

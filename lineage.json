@@ -1,0 +1,1813 @@
+[
+    {
+        "model": "PRODUCTS",
+        "column": "PRODUCT_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_ID",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".SKU",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "SKU",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "PRODUCTS",
+        "column": "PRODUCT_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_NAME",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_NAME",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".NAME",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "NAME",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "PRODUCTS",
+        "column": "PRODUCT_TYPE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_TYPE",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_TYPE",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "TYPE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "PRODUCTS",
+        "column": "PRODUCT_DESCRIPTION",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_DESCRIPTION",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_DESCRIPTION",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".DESCRIPTION",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "DESCRIPTION",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "PRODUCTS",
+        "column": "PRODUCT_PRICE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_PRICE",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_PRICE",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('PRICE')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "PRODUCTS",
+        "column": "IS_FOOD_ITEM",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_FOOD_ITEM",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "IS_FOOD_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'JAFFLE', FALSE)",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "TYPE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "PRODUCTS",
+        "column": "IS_DRINK_ITEM",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_DRINK_ITEM",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "IS_DRINK_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'BEVERAGE', FALSE)",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "TYPE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "ORDER_ITEM_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDER_ITEMS\".ORDER_ITEM_ID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDER_ITEMS",
+                "column": "ORDER_ITEM_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ITEMS",
+                        "column": "ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "ORDER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDER_ITEMS\".ORDER_ID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDER_ITEMS",
+                "column": "ORDER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".ORDER_ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ITEMS",
+                        "column": "ORDER_ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "PRODUCT_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDER_ITEMS\".PRODUCT_ID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDER_ITEMS",
+                "column": "PRODUCT_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".SKU",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ITEMS",
+                        "column": "SKU",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "ORDERED_AT",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDERED_AT",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "ORDERED_AT",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'ORDERED_AT')))",
+                "upstream_models": [
+                    {
+                        "model": "DBT",
+                        "column": "DATE_TRUNC",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "PRODUCT_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_NAME",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_NAME",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".NAME",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "NAME",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "PRODUCT_PRICE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_PRICE",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "PRODUCT_PRICE",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('PRICE')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "IS_FOOD_ITEM",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_FOOD_ITEM",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "IS_FOOD_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'JAFFLE', FALSE)",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "TYPE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "IS_DRINK_ITEM",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_DRINK_ITEM",
+        "upstream_models": [
+            {
+                "model": "STG_PRODUCTS",
+                "column": "IS_DRINK_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'BEVERAGE', FALSE)",
+                "upstream_models": [
+                    {
+                        "model": "RAW_PRODUCTS",
+                        "column": "TYPE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDER_ITEMS",
+        "column": "SUPPLY_COST",
+        "column Description": "Description not available",
+        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".SUPPLY_COST)",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "SUPPLY_COST",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('COST')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "CUSTOMER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_CUSTOMERS\".CUSTOMER_ID",
+        "upstream_models": [
+            {
+                "model": "STG_CUSTOMERS",
+                "column": "CUSTOMER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_CUSTOMERS\".ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_CUSTOMERS",
+                        "column": "ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "CUSTOMER_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_CUSTOMERS\".CUSTOMER_NAME",
+        "upstream_models": [
+            {
+                "model": "STG_CUSTOMERS",
+                "column": "CUSTOMER_NAME",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_CUSTOMERS\".NAME",
+                "upstream_models": [
+                    {
+                        "model": "RAW_CUSTOMERS",
+                        "column": "NAME",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "COUNT_LIFETIME_ORDERS",
+        "column Description": "Description not available",
+        "reasoning": "COUNT(DISTINCT \"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_ID)",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "ORDER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_ID",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "ORDER_ID",
+                        "column Description": "Description not available",
+                        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ID",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_ORDERS",
+                                "column": "ID",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "FIRST_ORDERED_AT",
+        "column Description": "Description not available",
+        "reasoning": "MIN(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDERED_AT)",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "ORDERED_AT",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDERED_AT",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "ORDERED_AT",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'ORDERED_AT')))",
+                        "upstream_models": [
+                            {
+                                "model": "DBT",
+                                "column": "DATE_TRUNC",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "LAST_ORDERED_AT",
+        "column Description": "Description not available",
+        "reasoning": "MAX(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDERED_AT)",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "ORDERED_AT",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDERED_AT",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "ORDERED_AT",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'ORDERED_AT')))",
+                        "upstream_models": [
+                            {
+                                "model": "DBT",
+                                "column": "DATE_TRUNC",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "LIFETIME_SPEND_PRETAX",
+        "column Description": "Description not available",
+        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".SUBTOTAL)",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "SUBTOTAL",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".SUBTOTAL",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "SUBTOTAL",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('SUBTOTAL')))",
+                        "upstream_models": [
+                            {
+                                "model": "",
+                                "column": "",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "LIFETIME_TAX_PAID",
+        "column Description": "Description not available",
+        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".TAX_PAID)",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "TAX_PAID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "TAX_PAID",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+                        "upstream_models": [
+                            {
+                                "model": "",
+                                "column": "",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "LIFETIME_SPEND",
+        "column Description": "Description not available",
+        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_TOTAL)",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "ORDER_TOTAL",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "ORDER_TOTAL",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+                        "upstream_models": [
+                            {
+                                "model": "",
+                                "column": "",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "CUSTOMERS",
+        "column": "CUSTOMER_TYPE",
+        "column Description": "Description not available",
+        "reasoning": "CASE WHEN COUNT(DISTINCT \"JAFFLE_SHOP.DBT_JMARWAHA.ORDERS\".ORDER_ID) > 1 THEN  ELSE 'NEW' END",
+        "upstream_models": [
+            {
+                "model": "ORDERS",
+                "column": "ORDER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_ID",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDERS",
+                        "column": "ORDER_ID",
+                        "column Description": "Description not available",
+                        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ID",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_ORDERS",
+                                "column": "ID",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "SUPPLIES",
+        "column": "SUPPLY_UUID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".SUPPLY_UUID",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "SUPPLY_UUID",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT_UTILS.GENERATE_SURROGATE_KEY(['ID', 'SKU'])))",
+                "upstream_models": [
+                    {
+                        "model": "DBT_UTILS",
+                        "column": "GENERATE_SURROGATE_KEY",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "SUPPLIES",
+        "column": "SUPPLY_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".SUPPLY_ID",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "SUPPLY_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_SUPPLIES",
+                        "column": "ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "SUPPLIES",
+        "column": "PRODUCT_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".PRODUCT_ID",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "PRODUCT_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".SKU",
+                "upstream_models": [
+                    {
+                        "model": "RAW_SUPPLIES",
+                        "column": "SKU",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "SUPPLIES",
+        "column": "SUPPLY_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".SUPPLY_NAME",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "SUPPLY_NAME",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".NAME",
+                "upstream_models": [
+                    {
+                        "model": "RAW_SUPPLIES",
+                        "column": "NAME",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "SUPPLIES",
+        "column": "SUPPLY_COST",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".SUPPLY_COST",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "SUPPLY_COST",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('COST')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "SUPPLIES",
+        "column": "IS_PERISHABLE_SUPPLY",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".IS_PERISHABLE_SUPPLY",
+        "upstream_models": [
+            {
+                "model": "STG_SUPPLIES",
+                "column": "IS_PERISHABLE_SUPPLY",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".PERISHABLE",
+                "upstream_models": [
+                    {
+                        "model": "RAW_SUPPLIES",
+                        "column": "PERISHABLE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "LOCATIONS",
+        "column": "LOCATION_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_LOCATIONS\".LOCATION_ID",
+        "upstream_models": [
+            {
+                "model": "STG_LOCATIONS",
+                "column": "LOCATION_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_STORES",
+                        "column": "ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "LOCATIONS",
+        "column": "LOCATION_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_LOCATIONS\".LOCATION_NAME",
+        "upstream_models": [
+            {
+                "model": "STG_LOCATIONS",
+                "column": "LOCATION_NAME",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".NAME",
+                "upstream_models": [
+                    {
+                        "model": "RAW_STORES",
+                        "column": "NAME",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "LOCATIONS",
+        "column": "TAX_RATE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_LOCATIONS\".TAX_RATE",
+        "upstream_models": [
+            {
+                "model": "STG_LOCATIONS",
+                "column": "TAX_RATE",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".TAX_RATE",
+                "upstream_models": [
+                    {
+                        "model": "RAW_STORES",
+                        "column": "TAX_RATE",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "LOCATIONS",
+        "column": "OPENED_DATE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_LOCATIONS\".OPENED_DATE",
+        "upstream_models": [
+            {
+                "model": "STG_LOCATIONS",
+                "column": "OPENED_DATE",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'OPENED_AT')))",
+                "upstream_models": [
+                    {
+                        "model": "DBT",
+                        "column": "DATE_TRUNC",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "ORDER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_ID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "ORDER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "LOCATION_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".LOCATION_ID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "LOCATION_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".STORE_ID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "STORE_ID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "CUSTOMER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".CUSTOMER_ID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "CUSTOMER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".CUSTOMER",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "CUSTOMER",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "SUBTOTAL_CENTS",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".SUBTOTAL_CENTS",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "SUBTOTAL_CENTS",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".SUBTOTAL",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "SUBTOTAL",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "TAX_PAID_CENTS",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID_CENTS",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "TAX_PAID_CENTS",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".TAX_PAID",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "TAX_PAID",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "ORDER_TOTAL_CENTS",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL_CENTS",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "ORDER_TOTAL_CENTS",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ORDER_TOTAL",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "ORDER_TOTAL",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "SUBTOTAL",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".SUBTOTAL",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "SUBTOTAL",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('SUBTOTAL')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "TAX_PAID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".TAX_PAID",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "TAX_PAID",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "ORDER_TOTAL",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDER_TOTAL",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "ORDER_TOTAL",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+                "upstream_models": [
+                    {
+                        "model": "",
+                        "column": "",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "ORDERED_AT",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDERED_AT",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "ORDERED_AT",
+                "column Description": "Description not available",
+                "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'ORDERED_AT')))",
+                "upstream_models": [
+                    {
+                        "model": "DBT",
+                        "column": "DATE_TRUNC",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "ORDER_COST",
+        "column Description": "Description not available",
+        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".SUPPLY_COST)",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "SUPPLY_COST",
+                "column Description": "Description not available",
+                "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.STG_SUPPLIES\".SUPPLY_COST)",
+                "upstream_models": [
+                    {
+                        "model": "STG_SUPPLIES",
+                        "column": "SUPPLY_COST",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('COST')))",
+                        "upstream_models": [
+                            {
+                                "model": "",
+                                "column": "",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "ORDER_ITEMS_SUBTOTAL",
+        "column Description": "Description not available",
+        "reasoning": "SUM(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".PRODUCT_PRICE)",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "PRODUCT_PRICE",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".PRODUCT_PRICE",
+                "upstream_models": [
+                    {
+                        "model": "STG_PRODUCTS",
+                        "column": "PRODUCT_PRICE",
+                        "column Description": "Description not available",
+                        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('PRICE')))",
+                        "upstream_models": [
+                            {
+                                "model": "",
+                                "column": "",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "COUNT_FOOD_ITEMS",
+        "column Description": "Description not available",
+        "reasoning": "SUM(CASE WHEN \"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".IS_FOOD_ITEM THEN  ELSE 0 END)",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "IS_FOOD_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_FOOD_ITEM",
+                "upstream_models": [
+                    {
+                        "model": "STG_PRODUCTS",
+                        "column": "IS_FOOD_ITEM",
+                        "column Description": "Description not available",
+                        "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'JAFFLE', FALSE)",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_PRODUCTS",
+                                "column": "TYPE",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "COUNT_DRINK_ITEMS",
+        "column Description": "Description not available",
+        "reasoning": "SUM(CASE WHEN \"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".IS_DRINK_ITEM THEN  ELSE 0 END)",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "IS_DRINK_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_DRINK_ITEM",
+                "upstream_models": [
+                    {
+                        "model": "STG_PRODUCTS",
+                        "column": "IS_DRINK_ITEM",
+                        "column Description": "Description not available",
+                        "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'BEVERAGE', FALSE)",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_PRODUCTS",
+                                "column": "TYPE",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "COUNT_ORDER_ITEMS",
+        "column Description": "Description not available",
+        "reasoning": "COUNT(\"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".ORDER_ITEM_ID)",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "ORDER_ITEM_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDER_ITEMS\".ORDER_ITEM_ID",
+                "upstream_models": [
+                    {
+                        "model": "STG_ORDER_ITEMS",
+                        "column": "ORDER_ITEM_ID",
+                        "column Description": "Description not available",
+                        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".ID",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_ITEMS",
+                                "column": "ID",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "IS_FOOD_ORDER",
+        "column Description": "Description not available",
+        "reasoning": "SUM(CASE WHEN \"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".IS_FOOD_ITEM THEN  ELSE 0 END) > 0",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "IS_FOOD_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_FOOD_ITEM",
+                "upstream_models": [
+                    {
+                        "model": "STG_PRODUCTS",
+                        "column": "IS_FOOD_ITEM",
+                        "column Description": "Description not available",
+                        "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'JAFFLE', FALSE)",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_PRODUCTS",
+                                "column": "TYPE",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "IS_DRINK_ORDER",
+        "column Description": "Description not available",
+        "reasoning": "SUM(CASE WHEN \"JAFFLE_SHOP.DBT_JMARWAHA.ORDER_ITEMS\".IS_DRINK_ITEM THEN  ELSE 0 END) > 0",
+        "upstream_models": [
+            {
+                "model": "ORDER_ITEMS",
+                "column": "IS_DRINK_ITEM",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.DBT_JMARWAHA.STG_PRODUCTS\".IS_DRINK_ITEM",
+                "upstream_models": [
+                    {
+                        "model": "STG_PRODUCTS",
+                        "column": "IS_DRINK_ITEM",
+                        "column Description": "Description not available",
+                        "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'BEVERAGE', FALSE)",
+                        "upstream_models": [
+                            {
+                                "model": "RAW_PRODUCTS",
+                                "column": "TYPE",
+                                "column Description": "Description not available",
+                                "reasoning": "Reasoning not available",
+                                "upstream_models": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "ORDERS",
+        "column": "CUSTOMER_ORDER_NUMBER",
+        "column Description": "Description not available",
+        "reasoning": "ROW_NUMBER() OVER (PARTITION BY \"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".CUSTOMER_ID ORDER BY \"JAFFLE_SHOP.DBT_JMARWAHA.STG_ORDERS\".ORDERED_AT ASC)",
+        "upstream_models": [
+            {
+                "model": "STG_ORDERS",
+                "column": "CUSTOMER_ID",
+                "column Description": "Description not available",
+                "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".CUSTOMER",
+                "upstream_models": [
+                    {
+                        "model": "RAW_ORDERS",
+                        "column": "CUSTOMER",
+                        "column Description": "Description not available",
+                        "reasoning": "Reasoning not available",
+                        "upstream_models": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "PRODUCT_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".SKU",
+        "upstream_models": [
+            {
+                "model": "RAW_PRODUCTS",
+                "column": "SKU",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "PRODUCT_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".NAME",
+        "upstream_models": [
+            {
+                "model": "RAW_PRODUCTS",
+                "column": "NAME",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "PRODUCT_TYPE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE",
+        "upstream_models": [
+            {
+                "model": "RAW_PRODUCTS",
+                "column": "TYPE",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "PRODUCT_DESCRIPTION",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".DESCRIPTION",
+        "upstream_models": [
+            {
+                "model": "RAW_PRODUCTS",
+                "column": "DESCRIPTION",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "PRODUCT_PRICE",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('PRICE')))",
+        "upstream_models": [
+            {
+                "model": "",
+                "column": "",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "IS_FOOD_ITEM",
+        "column Description": "Description not available",
+        "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'JAFFLE', FALSE)",
+        "upstream_models": [
+            {
+                "model": "RAW_PRODUCTS",
+                "column": "TYPE",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_PRODUCTS",
+        "column": "IS_DRINK_ITEM",
+        "column Description": "Description not available",
+        "reasoning": "COALESCE(\"JAFFLE_SHOP.RAW.RAW_PRODUCTS\".TYPE = 'BEVERAGE', FALSE)",
+        "upstream_models": [
+            {
+                "model": "RAW_PRODUCTS",
+                "column": "TYPE",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_SUPPLIES",
+        "column": "SUPPLY_UUID",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT_UTILS.GENERATE_SURROGATE_KEY(['ID', 'SKU'])))",
+        "upstream_models": [
+            {
+                "model": "DBT_UTILS",
+                "column": "GENERATE_SURROGATE_KEY",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_SUPPLIES",
+        "column": "SUPPLY_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".ID",
+        "upstream_models": [
+            {
+                "model": "RAW_SUPPLIES",
+                "column": "ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_SUPPLIES",
+        "column": "PRODUCT_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".SKU",
+        "upstream_models": [
+            {
+                "model": "RAW_SUPPLIES",
+                "column": "SKU",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_SUPPLIES",
+        "column": "SUPPLY_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".NAME",
+        "upstream_models": [
+            {
+                "model": "RAW_SUPPLIES",
+                "column": "NAME",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_SUPPLIES",
+        "column": "SUPPLY_COST",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('COST')))",
+        "upstream_models": [
+            {
+                "model": "",
+                "column": "",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_SUPPLIES",
+        "column": "IS_PERISHABLE_SUPPLY",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_SUPPLIES\".PERISHABLE",
+        "upstream_models": [
+            {
+                "model": "RAW_SUPPLIES",
+                "column": "PERISHABLE",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "ORDER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ID",
+        "upstream_models": [
+            {
+                "model": "RAW_ORDERS",
+                "column": "ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "LOCATION_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".STORE_ID",
+        "upstream_models": [
+            {
+                "model": "RAW_ORDERS",
+                "column": "STORE_ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "CUSTOMER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".CUSTOMER",
+        "upstream_models": [
+            {
+                "model": "RAW_ORDERS",
+                "column": "CUSTOMER",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "SUBTOTAL_CENTS",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".SUBTOTAL",
+        "upstream_models": [
+            {
+                "model": "RAW_ORDERS",
+                "column": "SUBTOTAL",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "TAX_PAID_CENTS",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".TAX_PAID",
+        "upstream_models": [
+            {
+                "model": "RAW_ORDERS",
+                "column": "TAX_PAID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "ORDER_TOTAL_CENTS",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ORDERS\".ORDER_TOTAL",
+        "upstream_models": [
+            {
+                "model": "RAW_ORDERS",
+                "column": "ORDER_TOTAL",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "SUBTOTAL",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('SUBTOTAL')))",
+        "upstream_models": [
+            {
+                "model": "",
+                "column": "",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "TAX_PAID",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('TAX_PAID')))",
+        "upstream_models": [
+            {
+                "model": "",
+                "column": "",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "ORDER_TOTAL",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', CENTS_TO_DOLLARS('ORDER_TOTAL')))",
+        "upstream_models": [
+            {
+                "model": "",
+                "column": "",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDERS",
+        "column": "ORDERED_AT",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'ORDERED_AT')))",
+        "upstream_models": [
+            {
+                "model": "DBT",
+                "column": "DATE_TRUNC",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDER_ITEMS",
+        "column": "ORDER_ITEM_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".ID",
+        "upstream_models": [
+            {
+                "model": "RAW_ITEMS",
+                "column": "ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDER_ITEMS",
+        "column": "ORDER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".ORDER_ID",
+        "upstream_models": [
+            {
+                "model": "RAW_ITEMS",
+                "column": "ORDER_ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_ORDER_ITEMS",
+        "column": "PRODUCT_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_ITEMS\".SKU",
+        "upstream_models": [
+            {
+                "model": "RAW_ITEMS",
+                "column": "SKU",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_CUSTOMERS",
+        "column": "CUSTOMER_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_CUSTOMERS\".ID",
+        "upstream_models": [
+            {
+                "model": "RAW_CUSTOMERS",
+                "column": "ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_CUSTOMERS",
+        "column": "CUSTOMER_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_CUSTOMERS\".NAME",
+        "upstream_models": [
+            {
+                "model": "RAW_CUSTOMERS",
+                "column": "NAME",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_LOCATIONS",
+        "column": "LOCATION_ID",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".ID",
+        "upstream_models": [
+            {
+                "model": "RAW_STORES",
+                "column": "ID",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_LOCATIONS",
+        "column": "LOCATION_NAME",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".NAME",
+        "upstream_models": [
+            {
+                "model": "RAW_STORES",
+                "column": "NAME",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_LOCATIONS",
+        "column": "TAX_RATE",
+        "column Description": "Description not available",
+        "reasoning": "\"JAFFLE_SHOP.RAW.RAW_STORES\".TAX_RATE",
+        "upstream_models": [
+            {
+                "model": "RAW_STORES",
+                "column": "TAX_RATE",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    },
+    {
+        "model": "STG_LOCATIONS",
+        "column": "OPENED_DATE",
+        "column Description": "Description not available",
+        "reasoning": "OBJECT_CONSTRUCT('_0', OBJECT_CONSTRUCT('_0', DBT.DATE_TRUNC('DAY', 'OPENED_AT')))",
+        "upstream_models": [
+            {
+                "model": "DBT",
+                "column": "DATE_TRUNC",
+                "column Description": "Description not available",
+                "reasoning": "Reasoning not available",
+                "upstream_models": []
+            }
+        ]
+    }
+]
